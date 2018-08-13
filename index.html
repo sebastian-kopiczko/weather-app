@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <title>Weather application</title>
+</head>
+<body>
+  <div class="container is-fullhd">
+    <div class="columns">
+        <div class="column is-6 is-offset-3">
+          <div class="box">
+              <h1 class="title has-text-centered" id="#weather-location">loc</h1>
+              <h2 class="subtitle has-text-centered" id="#weather-desc">cloudly</h2>
+              <h3 class="has-text-centered" id="#weather-temp">cloudly</h2>
+              <img src="" alt="" class="weather-icon">
+              <ul id="weather-details">
+                <li id="weather-cloudCover">1</li>
+                <li id="weather-humidity">2</li>
+                <li id="weather-feelsLike">3</li>
+                <li id="weather-windDirection"></li>
+                <li id="weather-windSpeed"></li>
+              </ul>
+              <button id="openModal" class="button is-primary">Change location</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <h3 class="title">Choose location</h3>
+        <form id="weather-form">
+          <div class="field">
+            <label for="latitude" class="label">Latitude</label>
+            <div class="control">
+              <input id="latitude" class="input" type="text" placeholder="Text input">
+            </div>
+          </div>
+          <div class="field">
+            <label for="longitude" class="label">Longitude</label>
+            <div class="control">
+              <input id="longitude" class="input" type="text" placeholder="Text input">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <button id="closeModal" class="modal-close is-large" aria-label="close"></button>
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>
+
+<!-- git commit -am "initial commit, created files and basic html" -->
