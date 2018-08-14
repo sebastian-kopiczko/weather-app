@@ -19,8 +19,17 @@ function getWeather(){
 // toggling modal window
 document.getElementById('changeLocation-button').addEventListener('click', () => ui.openModal());
 
-document.getElementById('modal').addEventListener('click', () => {
-  if(e.target.classList.contains('modal-background') || e.target.classList.contains('modal-close')){
+document.getElementById('modal').addEventListener('click', (e) => {
+  if(e.target.classList.contains('modal-background') || e.target.classList.contains('modal-close') || e.target.id === 'cancel-button'){
     ui.closeModal();
   }
+})
+
+document.getElementById('saveNewLocation-button').addEventListener('click', (e) =>{
+  const latitude = document.getElementById('latitude-input').value;
+  const longitude = document.getElementById('longitude-input').value;
+  console.log(latitude, longitude);
+  weather.changeLocation(latitude, longitude);
+  getWeather();
+  ui.closeModal();
 })
