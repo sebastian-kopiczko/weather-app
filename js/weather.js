@@ -18,6 +18,5 @@ class Weather{
   async changeLocation(lat, long){
     this.lat = lat;
     this.long = long;
-    // this.lang = lang;
   }
 }

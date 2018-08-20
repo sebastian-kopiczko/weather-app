@@ -1,24 +1,26 @@
 // init objects
+const googleMaps = new GoogleMaps();
 const storage = new Storage();
 const weatherLocation = storage.getLocationData();
-const weather = new Weather(weatherLocation.latitude, weatherLocation.longitude, weatherLocation.langCode);
+const weather = new Weather(weatherLocation.latitude, weatherLocation.longitude);
 const ui = new UserInterface();
+
 // get weather on dom load
 document.addEventListener('DOMContentLoaded', getWeather());
 
-// weather.changeLocation('52.226050', '21.015136');
-
-function getWeather(){
+function getWeather(address){
   weather.getWeather()
   .then(results => {
-    console.log(results)
-    ui.displayWeather(results)
+    ui.displayWeather(results);
+    ui.setHeading(address);
   })
   .catch(err => console.log(err));
 }
 
-// toggling modal window
-document.getElementById('changeLocation-button').addEventListener('click', () => ui.openModal());
+document.getElementById('changeLocation-button').addEventListener('click', () => {
+  ui.clearInput();
+  ui.openModal()
+});
 
 document.getElementById('modal').addEventListener('click', (e) => {
   if(e.target.classList.contains('modal-background') || e.target.classList.contains('modal-close') || e.target.id === 'cancel-button'){
@@ -26,13 +28,22 @@ document.getElementById('modal').addEventListener('click', (e) => {
   }
 })
 
-document.getElementById('saveNewLocation-button').addEventListener('click', (e) =>{
-  const latitude = document.getElementById('latitude-input').value;
-  const longitude = document.getElementById('longitude-input').value;
+document.getElementById('saveNewLocation-button').addEventListener('click', (e) => {
+  const data = {
+    lat: googleMaps.latitude,
+    lng: googleMaps.longitude,
+    langCode: googleMaps.langCode,
+    locationName: googleMaps.locationName
+  }
   
-  weather.changeLocation(latitude, longitude);
-  storage.setLocationData(latitude, longitude);
-  getWeather();
+  weather.changeLocation(data.lat, data.lng);
+  storage.setLocationData(data.lat, data.lng, data.langCode, data.locationName);
+
+  getWeather(data.locationName);
   ui.closeModal();
   e.preventDefault();
 })
+
+function googleMapInit(){
+  googleMaps.getCoordinates();
+}
