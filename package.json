@@ -4,7 +4,8 @@
   "description": "Application to check weather by inserting city name (used Google API to get coordinates by city name), results are fetched from DarkSky API.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --output-public-path=/build/  --mode development --progress --open --hot",
+    "build": "webpack --mode production --progress"
   },
   "repository": {
     "type": "git",
