@@ -1,4 +1,4 @@
-class GoogleMaps{
+export class GoogleMaps{
   constructor(){
     this.latitude;
     this.longitude;

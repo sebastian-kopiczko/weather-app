@@ -1,4 +1,4 @@
-class UserInterface{
+export class UserInterface{
   constructor(){
     this.locationName = document.getElementById('weather-locationName');
     this.latitude = document.getElementById('location-lat');

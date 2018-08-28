@@ -1,4 +1,4 @@
-class Weather{
+export class Weather{
   constructor(lat, long, lang){
     this.apiKey = '';
     this.lat = lat;
