@@ -1,3 +1,9 @@
+//imports
+import { GoogleMaps } from './maps' 
+import { Storage } from './storage' 
+import { Weather } from './weather' 
+import { UserInterface } from './ui' 
+
 // init objects
 const googleMaps = new GoogleMaps();
 const storage = new Storage();
@@ -47,3 +53,4 @@ document.getElementById('saveNewLocation-button').addEventListener('click', (e) 
 function googleMapInit(){
   googleMaps.getCoordinates();
 }
+window.googleMapInit = googleMapInit;
