@@ -1,26 +1,26 @@
 export class Storage{
   constructor(){
-    this.latitude;
-    this.longitude;
+    this.lat;
+    this.lng;
     this.langCode;
-    this.locationName;
-    this.defaultLatitude = '54.492976';
-    this.defaultLongitude = '18.543219';
+    this.address;
+    this.defaultLat = '54.492976';
+    this.defaultLng = '18.543219';
     this.defaultLangCode = 'pl';
-    this.defaultLocationName = 'Gdynia, Polska'
+    this.defaultAddress = 'Gdynia, Polska'
   }
 
   getLocationData(){
-    if(localStorage.getItem('latitude') === null){
-      this.latitude = this.defaultLatitude;
+    if(localStorage.getItem('lat') === null){
+      this.lat = this.defaultLat;
     } else {
-      this.latitude = localStorage.getItem('latitude');
+      this.lat = localStorage.getItem('lat');
     }
     
-    if(localStorage.getItem('longitude') === null){
-      this.longitude = this.defaultLongitude;
+    if(localStorage.getItem('lng') === null){
+      this.lng = this.defaultLng;
     } else {
-      this.longitude = localStorage.getItem('longitude');
+      this.lng = localStorage.getItem('lng');
     }
 
     if(localStorage.getItem('langCode') === null){
@@ -29,24 +29,24 @@ export class Storage{
       this.langCode = localStorage.getItem('langCode');
     }
 
-    if(localStorage.getItem('locationName') === null){
-      this.locationName = this.defaultLocationName;
+    if(localStorage.getItem('address') === null){
+      this.address = this.defaultAddress;
     } else {
-      this.locationName = localStorage.getItem('locationName');
+      this.address = localStorage.getItem('address');
     }
 
     return{
-      latitude: this.latitude,
-      longitude: this.longitude,
+      lat: this.lat,
+      lng: this.lng,
       langCode: this.langCode,
-      locationName: this.locationName
+      address: this.address
     }
   }
   
-  setLocationData(latitude, longitude, langCode, locationName){
-    localStorage.setItem('latitude', latitude);
-    localStorage.setItem('longitude', longitude);
+  setLocationData(lat, lng, langCode, address){
+    localStorage.setItem('lat', lat);
+    localStorage.setItem('lng', lng);
     localStorage.setItem('langCode', langCode);
-    localStorage.setItem('locationName', locationName);
+    localStorage.setItem('address', address);
   }
 }
