@@ -16,7 +16,7 @@ const weather = new Weather(weatherLocation.latitude, weatherLocation.longitude)
 const ui = new UserInterface();
 
 const skycons = new Skycons();
-skycons.add(document.getElementById("icon2"), Skycons.RAIN);
+skycons.add(document.getElementById("icon2"), Skycons.PARTLY_CLOUDY_DAY);
 
 // get weather on dom load
 document.addEventListener('DOMContentLoaded', getWeather());

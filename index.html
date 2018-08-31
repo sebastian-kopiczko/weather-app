@@ -14,12 +14,12 @@
 <body>
   <div id="app" class="container">
     <div class="row">
-      <div class="input-field col s12 m6 offset-m3 l4 offset-l4">
-        <input id="location" type="text" class="validate">
-        <label for="location">Lokalizacja</label>
+      <div class="input-field location-input col s12 m6 offset-m3 l4 offset-l4">
+        <input id="loc" type="text" class="validate">
+        <label for="loc">Lokalizacja</label>
       </div>
       <div class="center-align">
-        <button class="btn">Zatwierdź</button>
+        <button id="saveNewLocation-button" class="btn">Zatwierdź</button>
       </div>
     </div>
     <div class="divider"></div>
@@ -32,8 +32,6 @@
             <span id="location-lng"></span>
           </p>  
         </div>
-        <canvas id="icon2" width="128" height="128"></canvas>
-
         <div class="temperature center-align">
           <h5 id="weather-summary"></h5>
           <h1 id="weather-temp"></h1>

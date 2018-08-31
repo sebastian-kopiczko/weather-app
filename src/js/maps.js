@@ -4,7 +4,7 @@ export class GoogleMaps{
     this.longitude;
     this.langCode;
     this.locationName;
-    this.locationInput = document.getElementById('location-input');
+    this.locationInput = document.querySelector('.location-input input');
   }
 
   getCoordinates(){
