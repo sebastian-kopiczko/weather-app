@@ -1,19 +1,22 @@
 // materialize
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css/dist/js/materialize.min.js'
-
 //imports
 import { GoogleMaps } from './maps' 
 import { Storage } from './storage' 
 import { Weather } from './weather' 
 import { UserInterface } from './ui' 
-
+// use skycons
+const Skycons = require("skycons")(window);
 // init objects
 const googleMaps = new GoogleMaps();
 const storage = new Storage();
 const weatherLocation = storage.getLocationData();
 const weather = new Weather(weatherLocation.latitude, weatherLocation.longitude);
 const ui = new UserInterface();
+
+const skycons = new Skycons();
+skycons.add(document.getElementById("icon2"), Skycons.RAIN);
 
 // get weather on dom load
 document.addEventListener('DOMContentLoaded', getWeather());
