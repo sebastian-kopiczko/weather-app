@@ -1,29 +1,35 @@
 export class GoogleMaps{
   constructor(){
-    this.latitude;
-    this.longitude;
-    this.langCode;
-    this.locationName;
     this.locationInput = document.querySelector('.location-input input');
+    this.addressData;
+    this.geometryData;
   }
 
   getCoordinates(){
-    const searchBox = new google.maps.places.SearchBox(this.locationInput);
-  
-    searchBox.addListener('places_changed', () => {
-      const data = searchBox.getPlaces()[0];
-      // console.log(data);
-      this.latitude = data.geometry.location.lat();
-      this.longitude = data.geometry.location.lng();
-      this.locationName = data.formatted_address;
-      this.langCode = data.address_components[data.address_components.length - 2].short_name.toLowerCase();
-    })
+    const autocomplete = new google.maps.places.Autocomplete((this.locationInput), {types: ['(cities)']});
+
+    autocomplete.addListener('place_changed', () => {
+      const place = autocomplete.getPlace();
+      console.log(place);
+      this.geometryData = {
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng()
+      }
+      this.addressData = place.formatted_address;
+    });
 
     return {
-      latitude: this.latitude,
-      longitude: this.longitude,
-      langCode: this.langCode,
-      locationName: this.locationName
+      place: this.place
+      // latitude: this.latitude,
+      // longitude: this.longitude,
+      // langCode: this.langCode,
+      // locationName: this.locationName
+    }
+  }
+  getData(){
+    return {
+      address: this.addressData,
+      geometry: this.geometryData
     }
   }
 }
