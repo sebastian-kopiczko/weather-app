@@ -19,7 +19,7 @@ const skycons = new Skycons();
 skycons.add(document.getElementById("icon2"), Skycons.PARTLY_CLOUDY_DAY);
 
 // get weather on dom load
-document.addEventListener('DOMContentLoaded', getWeather());
+// document.addEventListener('DOMContentLoaded', getWeather());
 
 function getWeather(){
   weather.getWeather()  
