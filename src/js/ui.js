@@ -16,8 +16,8 @@ export class UserInterface{
   }
 
   displayResults(response){
-    this.latitude.textContent = response.latitude;
-    this.longitude.textContent = response.longitude;
+    this.latitude.textContent = response.latitude.toFixed(4);
+    this.longitude.textContent = response.longitude.toFixed(4);
     this.summary.textContent = response.currently.summary;
     this.temp.innerHTML = `${response.currently.temperature} &deg;${this.tempUnits}`;
     this.pressure.textContent = `Ciśnienie: ${response.currently.pressure} hPa`;
