@@ -20,10 +20,6 @@ export class GoogleMaps{
 
     return {
       place: this.place
-      // latitude: this.latitude,
-      // longitude: this.longitude,
-      // langCode: this.langCode,
-      // locationName: this.locationName
     }
   }
   getData(){
