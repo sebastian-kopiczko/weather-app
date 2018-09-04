@@ -1,6 +1,6 @@
 export class GoogleMaps{
   constructor(){
-    this.locationInput = document.querySelector('.location-input input');
+    this.locationInput = document.querySelector('#location-field');
     this.addressData;
     this.geometryData;
   }

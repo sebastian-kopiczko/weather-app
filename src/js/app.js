@@ -1,6 +1,7 @@
 // materialize
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css/dist/js/materialize.min.js'
+import '../css/style.css'
 //imports
 import { GoogleMaps } from './maps' 
 import { Storage } from './storage' 

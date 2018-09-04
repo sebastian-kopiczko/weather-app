@@ -1,35 +1,51 @@
-// import { Weather } from './weather';
-// const weather = new Weather();
-export class UserInterface{
-  constructor(){
-    this.locationName = document.getElementById('weather-locationName');
-    this.latitude = document.getElementById('location-lat');
+export class UserInterface {
+  constructor() {
+    this.units = {
+      temperature: '',
+      speed: '',
+      pressure: ''
+    }
+
+    this.locationInput = document.getElementById('location-field');
     this.longitude = document.getElementById('location-lng');
-    this.summary = document.getElementById('weather-summary');
+    this.latitude = document.getElementById('location-lat');
+
+    this.locationName = document.getElementById('weather-locationName');
     this.temp = document.getElementById('weather-temp');
+    this.desc = document.getElementById('weather-desc');
+    this.windSpeed = document.getElementById('weather-windSpeed');
     this.pressure = document.getElementById('weather-pressure');
     this.humidity = document.getElementById('weather-humidity');
-    this.windSpeed = document.getElementById('weather-windSpeed');
-    this.tempUnits;
-
-    this.locationInput = document.getElementById('location-input');
   }
-
-  displayResults(response){
-    this.latitude.textContent = response.latitude.toFixed(4);
-    this.longitude.textContent = response.longitude.toFixed(4);
-    this.summary.textContent = response.currently.summary;
-    this.temp.innerHTML = `${response.currently.temperature} &deg;${this.tempUnits}`;
-    this.pressure.textContent = `Ciśnienie: ${response.currently.pressure} hPa`;
-    this.humidity.textContent = `Wilgotność: ${response.currently.humidity * 100} %`;
-    this.windSpeed.textContent = `Prędkość wiatru: ${response.currently.windSpeed} m/s`;
+  setUnits(unitFlag) {
+    if (unitFlag === 'si') {
+      this.units = {
+        temperature: "C",
+        speed: "m/s",
+        pressure: "hPa"
+      }
+    } else {
+      this.units = {
+        temperature: "F",
+        speed: "mph",
+        pressure: "mbar"
+      }
+    }
   }
-
-  setHeading(address){
+  displayResults(address, weatherData) {
     this.locationName.textContent = address;
-  }
+    this.temp.innerHTML = `${weatherData.currently.temperature} &deg;${this.units.temperature}`;
+    this.desc.textContent = weatherData.currently.desc;
 
-  clearInput(){
+    this.latitude.textContent = `${weatherData.latitude.toFixed(4)}`;
+    this.longitude.textContent = weatherData.longitude.toFixed(4);
+    
+    this.windSpeed.textContent += `${weatherData.currently.windSpeed} ${weatherData.speed}`;
+    this.pressure.textContent += `${weatherData.currently.pressure} ${this.units.pressure}`;
+    this.humidity.textContent = ` ${weatherData.currently.humidity * 100}%`;
+  }
+  
+  clearInput() {
     this.locationInput.value = '';
   }
 }

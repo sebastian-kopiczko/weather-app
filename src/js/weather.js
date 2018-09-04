@@ -9,10 +9,12 @@ export class Weather{
   // fetch weather from api
   async getWeather(){
     const corsEnableUrl = 'https://cors-anywhere.herokuapp.com/';
+
     const response = await fetch(`${corsEnableUrl}https://api.darksky.net/forecast/${this.apiKey}/${this.lat},${this.lng}?lang=${this.lang}&units=auto`);
     const responseData = await response.json();
+    console.log(`getWeather() response:`);
     console.log(responseData);
-    return responseData;
+    return responseData;  
   }
 
   // change weather location
