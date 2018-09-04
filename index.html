@@ -24,7 +24,23 @@
         <button id="saveNewLocation-button" class="location__button btn btn-small">Zatwierdź</button>
       </div>
     </div>
-    <!-- <div class="divider"></div> -->
+    <div class="row" id="loader-row">
+      <div class="col s2 offset-s5">
+        <div class="preloader-wrapper small active">
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row forecast">
       <ul class="forecast__details collection swith-header">
         <li class="forecast__header collection-header center-align">
@@ -40,9 +56,9 @@
           </p>
           <div class="divider"></div>
         </li>
-        <li id="weather-windSpeed" class="forecast__item collection-item">Prędkość wiatru: </li>
-        <li id="weather-pressure" class="forecast__item  collection-item">Ciśnienie: </li>
-        <li id="weather-humidity" class="forecast__item collection-item">Wilgotność: </li>
+        <li id="weather-windSpeed" class="forecast__item collection-item"></li>
+        <li id="weather-pressure" class="forecast__item  collection-item"></li>
+        <li id="weather-humidity" class="forecast__item collection-item"></li>
       </ul>
     </div>
   </div>

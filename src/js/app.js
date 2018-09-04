@@ -19,11 +19,13 @@ const ui = new UserInterface();
 
 // get weather on dom load
 document.addEventListener('DOMContentLoaded', getWeather());
+ui.showLoader();
 
 function getWeather(){
+  ui.showLoader();
   weather.getWeather()
   .then(results => {
-    console.log(typeof(storage.getLocationData().address));
+    ui.hideLoader();
     ui.displayResults(results, storage.getLocationData().address)
   })
   .catch(err => console.error(err));
