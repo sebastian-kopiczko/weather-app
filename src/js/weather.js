@@ -1,9 +1,11 @@
+import { Storage } from './storage' 
+const storage = new Storage();
 export class Weather{
   constructor(lat, lng){
     this.apiKey = '055a53f5a6b68703fe86456a74f6da17';
     this.lang = 'pl';
-    this.lat = lat;
-    this.lng = lng;
+    this.lat = lat || storage.getLocationData().lat;
+    this.lng = lng || storage.getLocationData().lng;
   }
 
   // fetch weather from api

@@ -27,9 +27,9 @@ export class UserInterface {
     this.latitude.textContent = `${weatherData.latitude.toFixed(4)}`;
     this.longitude.textContent = weatherData.longitude.toFixed(4);
     
-    this.windSpeed.textContent += `${weatherData.currently.windSpeed} ${weatherData.units.speed}}`;
+    this.windSpeed.textContent += `${weatherData.currently.windSpeed} ${weatherData.units.speed}`;
     this.pressure.textContent += `${weatherData.currently.pressure} ${weatherData.units.pressure}`;
-    this.humidity.textContent = ` ${weatherData.currently.humidity * 100}%`;
+    this.humidity.textContent += ` ${weatherData.currently.humidity * 100}%`;
   }
 
   clearInput() {

@@ -18,7 +18,7 @@ const weather = new Weather(weatherLocation.latitude, weatherLocation.longitude)
 const ui = new UserInterface();
 
 // get weather on dom load
-// document.addEventListener('DOMContentLoaded', getWeather());
+document.addEventListener('DOMContentLoaded', getWeather());
 
 function getWeather(){
   weather.getWeather()
